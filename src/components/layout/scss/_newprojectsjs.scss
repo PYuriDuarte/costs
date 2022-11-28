@@ -1,0 +1,19 @@
+.newproject_container{
+  width: 100%;
+  max-width: 120rem;
+  height: 50rem;
+  margin: 0 auto;
+  padding: 3rem;
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h2{
+    margin: -15rem 0 1rem 0;
+    font-size: 4rem;
+  }
+  p{
+    color: #7b7b7b;
+  }
+}

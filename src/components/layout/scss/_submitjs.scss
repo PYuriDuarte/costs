@@ -1,0 +1,16 @@
+.submitBtn{
+  background: #222;
+  color: #fff;
+  padding: .5rem 1.5rem;
+  text-decoration: none;
+  transition: color .5s;
+  border: none;
+  box-shadow: -1px 1px 1px rgba(0,0,0,0.2), -2px 2px 1px rgba(0,0,0,0.19);
+  &:hover{
+    color: #fb3;
+  }
+  &:active{
+    box-shadow: inset -2px 2px 1px rgba(182, 182, 182, 0.2);
+    font-size: 1.3rem;
+  }
+}

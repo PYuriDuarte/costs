@@ -1,0 +1,27 @@
+.footer{
+  background: #222;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+  .social_list{
+    display: flex;
+    justify-content: center;
+    li{
+      margin: 0 1rem;
+      cursor: pointer;
+      font-size: 2rem;
+      &:hover{
+        color: #fb3;
+      }
+    }    
+  }
+  p{    
+    font-size: 1.6rem;
+    margin-top: 4rem;
+    span{
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #fb3;
+    }
+  }
+}
