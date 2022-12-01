@@ -1,0 +1,18 @@
+.project_container{  
+  padding: 2rem;
+  width: 100%;
+  max-width: 120rem;
+  height: 50rem;
+  font-size: 4rem;
+  margin: 0 auto;
+  .title_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    margin: 1rem 0;
+    h2{
+      font-size: 4rem;
+    }
+  }
+}

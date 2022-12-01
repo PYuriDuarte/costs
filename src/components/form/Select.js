@@ -1,19 +1,23 @@
-function Selectjs({text, name, options, handleOnChange, value}){
+function Selectjs({ text, name, options, handleOnChange, value }){
 
   return (
     <div className="form_control">
-      <label htmlFor={name}>{text}</label>
-      <select id={name} name={name} onChange={handleOnChange} value={value || ''}>
+      <label htmlFor={name}>{text}:</label>
+      <select
+        name={name}
+        id={name}
+        onChange={handleOnChange}
+        value={value || ''}
+      >
         <option>Selecione uma opção</option>
-        {options.map((option) => (
-          <option value={option.id} key={option.id}>
-            {option.name}
+        {options.map((options) => (
+          <option value={options.id} key={options.id}>
+            {options.name}
           </option>
         ))}
-      </select> 
+      </select>
     </div>
   )
-
-};
+}
 
 export default Selectjs;

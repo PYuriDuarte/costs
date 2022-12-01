@@ -12,7 +12,7 @@ function NewProjectsjs(){
     project.cost = 0;
     project.services=[];
 
-    fetch('http://localhost:3000/projects',{
+    fetch('http://localhost:5000/projects',{
       method: 'POST',
       headers: { 'Contet-type': 'application/json'},
       body: JSON.stringify(project),

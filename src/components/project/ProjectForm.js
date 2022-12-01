@@ -4,27 +4,25 @@ import Inputjs from "../form/Input";
 import Selectjs from "../form/Select";
 import Submitjs from "../form/Submit";
 
-
 function ProjectFormjs({handleSubmit, btnText, projectData}){
 
-  const [categories, setCategories] = useState([]);
-  const [project, setProject] = useState(projectData || {});
+  const [project, setProject] = useState(projectData || {})
+  const [categories, setCategories] = useState([])
 
   useEffect(() =>{
-    fetch('http://localhost:3000/categories', {
+    fetch('http://localhost:5000/categories', {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json'
-    }
+      'Content-Type': 'application/json',
+    },
   })
     .then((resp) => resp.json())
     .then((data) => {setCategories(data)})
-    .catch((err) => console.log(err))
   },[]);
 
   const submit = (e) => {
-    e.preventDefault();
-    handleSubmit(project);
+    e.preventDefault()
+    handleSubmit(project)
   };
 
   function handleChange(e) {
@@ -44,7 +42,7 @@ function ProjectFormjs({handleSubmit, btnText, projectData}){
       <form onSubmit={submit} className="form">
         <Inputjs 
           type="text" 
-          text="Nome do projeto:" 
+          text="Nome do projeto" 
           name="name" 
           placeholder="Insira o nome do projeto"
           handleOnChange={handleChange}
@@ -52,7 +50,7 @@ function ProjectFormjs({handleSubmit, btnText, projectData}){
         />
         <Inputjs 
           type="number" 
-          text="Orçamento do projeto:" 
+          text="Orçamento do projeto" 
           name="budget" 
           placeholder="Insira o orçamento total"
           handleOnChange={handleChange}
