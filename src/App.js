@@ -5,6 +5,7 @@ import Companyjs from './components/pages/Company';
 import Contactjs from './components/pages/Contact';
 import NewProjectsjs from './components/pages/NewProjects';
 import Projectsjs from './components/layout/Projects';
+import Projectjs from './components/pages/Project';
 
 
 import Containerjs from './components/layout/Container';
@@ -19,10 +20,11 @@ function App() {
       <Containerjs customClass="minHeight">
         <Routes>
           <Route path='/' exact='true' element={<Homejs/>}></Route>
-          <Route path='/projects' exact='true' element={<Projectsjs/>}></Route>
-          <Route path='/company' exact='true' element={<Companyjs/>}></Route>
-          <Route path='/contact' exact='true' element={<Contactjs/>}></Route>
-          <Route path='/newprojects' exact='true' element={<NewProjectsjs/>}></Route>      
+          <Route path='/projects' element={<Projectsjs/>}></Route>
+          <Route path='/company' element={<Companyjs/>}></Route>
+          <Route path='/contact' element={<Contactjs/>}></Route>
+          <Route path='/newprojects' element={<NewProjectsjs/>}></Route>      
+          <Route path='/project/:id' element={<Projectjs/>}></Route>      
         </Routes>
       </Containerjs>    
       <Footers/>

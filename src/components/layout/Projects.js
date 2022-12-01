@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 
 import Container from './Container';
+import Loadingjs from './Loading';
 
 import Messagejs from "./Message";
 import LinkButtonjs from './LinkButton';
@@ -33,10 +34,27 @@ function Projectsjs(){
           .then((resp) => resp.json())
           .then((data) => {
             setProjects(data)
+            setRemoveLoading(true)
           }),
       100,
     )
   }, [])
+
+  function removeProject(id){
+    fetch(`http://localhost:5000/projects/${id}`,{
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    }) 
+      .then((resp) => resp.json())
+      .then(() => {
+        setProjects(projects.filter((project) => project.id !== id))
+        setProjectMessage('Projeto Removido')
+      })
+      .catch((err) => console.log(err))
+
+  }
 
   return (
     <div className="project_container">
@@ -45,6 +63,7 @@ function Projectsjs(){
         <LinkButtonjs to="/newprojects" text="Criar Projeto"/>
       </div>
       {message && <Messagejs type="success" msg={message} />}
+      {projectMessage && <Messagejs type="success" msg={projectMessage} />}
       <Container customClass="start">
         {projects.length > 0 &&
           projects.map((project) => (
@@ -54,8 +73,13 @@ function Projectsjs(){
               budget={project.budget}
               category={project.category ? project.category.name : project.category}
               key={project.id}
+              handleRemove={removeProject}
             />
           ))}
+          {!removeLoading && <Loadingjs/>}
+          {removeLoading && projects.length === 0 && (
+            <p>Você não tem projetos</p>
+          )}
       </Container>
     </div>
   )

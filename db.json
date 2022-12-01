@@ -2,7 +2,7 @@
   "projects": [
     {
       "name": "Projeto de Infra",
-      "budget": "10000",
+      "budget": "50000",
       "category": {
         "id": "1",
         "name": "Infra"
@@ -19,8 +19,8 @@
       "id": 2
     },
     {
-      "name": "Desenvolvimento do novo site",
-      "budget": "3000",
+      "name": "Desenvolvimento do site",
+      "budget": "250000",
       "category": {
         "id": "2",
         "name": "Desenvolvimento"
@@ -30,10 +30,7 @@
       "id": 3
     },
     {
-      "id": 4
-    },
-    {
-      "id": 5
+      "id": 6
     }
   ],
   "categories": [
