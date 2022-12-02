@@ -7,7 +7,7 @@
         "id": "1",
         "name": "Infra"
       },
-      "cost": 5000,
+      "cost": null,
       "services": [
         {
           "name": "Contratar um DevOps",
