@@ -1,3 +1,5 @@
+import { parse, v4 as uuidv4} from 'uuid'
+
 import {useParams} from 'react-router-dom';
 import {useState, useEffect} from 'react';
 
@@ -5,6 +7,7 @@ import Loading from '../layout/Loading';
 import Container from '../layout/Container';
 import Message from '../layout/Message'
 import ProjectFormjs from '../project/ProjectForm'
+import ServiceFormjs from '../services/ServiceForm';
 
 function Projectjs(){
 
@@ -59,6 +62,38 @@ function Projectjs(){
       .catch((err) => console.log(err))
   }
 
+  function createService(project){
+    setMessage('')
+
+    const lastService = project.services[project.services.length - 1]
+
+    lastService.id = uuidv4()
+
+    const lastServiceCost = lastService.cost
+    const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
+
+    if(newCost > parseFloat(project.budget)){
+      setMessage('Orçamento ultrapassado, verifique o valor do serviço')
+      setType('error')
+      project.services.pop()
+      return false
+    }
+
+    project.cost = newCost
+
+    fetch(`http://localhost:5000/project/${project.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(project),
+    }).then((resp) => resp.json())
+      .then((data) => {
+      
+      })
+      .catch((err) => console.log(err))
+  }
+
   function toggleProjectForm(){
     setShowProjectForm(!showProjectForm)
   }
@@ -104,7 +139,11 @@ function Projectjs(){
             <div className='project_info'>
               {showServiceForm && (
                 <div>
-                  form
+                  <ServiceFormjs 
+                  handleSubmit={createService}
+                  btnText="Adicionar Serviço"
+                  projectData={project}
+                  />
                 </div>
               )}
             </div>
