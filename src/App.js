@@ -26,7 +26,7 @@ function App() {
           <Route path='/newprojects' element={<NewProjectsjs/>}></Route>      
           <Route path='/project/:id' element={<Projectjs/>}></Route>      
         </Routes>
-      </Containerjs>    
+      </Containerjs>
       <Footers/>
     </Router>
   );
